@@ -1,1 +1,0 @@
-button[data-item-name="Quality Fitted Hat"]
