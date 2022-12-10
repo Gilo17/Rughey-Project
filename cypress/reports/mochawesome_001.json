@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-10T22:34:44.303Z",
+    "end": "2022-12-10T22:35:32.193Z",
+    "duration": 47890,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3c14f1dc-9ced-4414-8496-568caa5ffc37",
+      "title": "",
+      "fullFile": "cypress/e2e/test/authentication.cy.js",
+      "file": "cypress/e2e/test/authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4652aaa-4660-4d80-8bdc-09477616ef27",
+          "title": "User authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login to platform",
+              "fullTitle": "User authentication Login to platform",
+              "timedOut": null,
+              "duration": 23063,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#signInOrRegister\").click(); //Login on to site.\ncy.origin(\"https://dev-mlluudmotpwoldtv.us.auth0.com\", {\n  args: {}\n}, ({}) => {\n  cy.get('[type=\"email\"]').type(\"test1@tester.com\");\n  cy.get('[type=\"password\"]').type(\"Password1\", {\n    log: false\n  });\n  cy.get(\"[name=submit]\").click();\n});\ncy.url().should('contain', 'products');\ncy.get(_authentication.default.productList).should('be.visible');",
+              "err": {},
+              "uuid": "f538a82e-a981-4804-86f9-c9076adef9cb",
+              "parentUUID": "d4652aaa-4660-4d80-8bdc-09477616ef27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "signUp",
+              "fullTitle": "User authentication signUp",
+              "timedOut": null,
+              "duration": 20169,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#signInOrRegister\").click();\nconst email = _faker.faker.internet.email(); //Login on to site.\n\ncy.origin(\"https://dev-mlluudmotpwoldtv.us.auth0.com\", {\n  args: {\n    email\n  }\n}, ({\n  email\n}) => {\n  cy.get('.auth0-lock-tabs li:nth-child(2)').click();\n  cy.get('[type=\"email\"]').type(email);\n  cy.get('[type=\"password\"]').type(\"Password1\", {\n    log: false\n  });\n  cy.get(\"[name=submit]\").click();\n});\ncy.url().should('contain', 'products');\ncy.get(_authentication.default.productList).should('be.visible');",
+              "err": {},
+              "uuid": "30e2bd3d-eeb4-46d9-957b-649a3e94ad19",
+              "parentUUID": "d4652aaa-4660-4d80-8bdc-09477616ef27",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f538a82e-a981-4804-86f9-c9076adef9cb",
+            "30e2bd3d-eeb4-46d9-957b-649a3e94ad19"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43232,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

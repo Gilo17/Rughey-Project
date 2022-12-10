@@ -1,6 +1,6 @@
 import Authentication from "../page/authentication.page"
 
-describe("Add to cart",()=>{
+describe.only("Add to cart",()=>{
     beforeEach(()=>{
         cy.visit('/')
     cy.get("#signInOrRegister").click();
@@ -19,9 +19,10 @@ describe("Add to cart",()=>{
     })
     it('add single item to cart',()=>{
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
-        cy.wait(5000)
+        cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
-        cy.get("section.snipcart-cart__content").should("be.visible")
+        cy.wait(6000)
+        cy.get(".snipcart-cart-header__title.snipcart__font--black.snipcart__font--secondary").should("be.visible")
     })
 
 
