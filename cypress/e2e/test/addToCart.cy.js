@@ -1,9 +1,9 @@
 import Authentication from "../page/authentication.page"
 
-describe.only("Add to cart",()=>{
-    beforeEach(()=>{
+describe.only("Add to cart", () => {
+    beforeEach(() => {
         cy.visit('/')
-    cy.get("#signInOrRegister").click();
+        cy.get("#signInOrRegister").click();
         //Login on to site.
         cy.origin(
             "https://dev-mlluudmotpwoldtv.us.auth0.com",
@@ -17,12 +17,12 @@ describe.only("Add to cart",()=>{
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it('add single item to cart',()=>{
+    it('add single item to cart', () => {
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
-        cy.wait(6000)
-        cy.get(".snipcart-cart-header__title.snipcart__font--black.snipcart__font--secondary").should("be.visible")
+        cy.get(".snipcart-cart-header").should("be.visible")
+        cy.get('.snipcart-base-button__wrapper').should("be.visible")
     })
 
 
