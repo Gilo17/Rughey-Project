@@ -1,9 +1,12 @@
 import Authentication from "../page/authentication.page"
+// import { faker } from '@faker-js/faker'
 
-describe.only("Add to cart",()=>{
-    beforeEach(()=>{
+describe('Product page', () => {
+    beforeEach(() => {
         cy.visit('/')
-    cy.get("#signInOrRegister").click();
+    })
+    it("Shows Products", () => {
+        cy.get("#signInOrRegister").click();
         //Login on to site.
         cy.origin(
             "https://dev-mlluudmotpwoldtv.us.auth0.com",
@@ -16,14 +19,8 @@ describe.only("Add to cart",()=>{
         );
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
-    })
-    it('add single item to cart',()=>{
-        cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
-        cy.wait(6000)
-        cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
-        cy.get(".snipcart-cart-header__title.snipcart__font--black.snipcart__font--secondary").should("be.visible")
-    })
-
-
+        cy.get(".chakra-image.css-2i84d9[src='/images/quality-mousepad.jpg']").should('be.visible')
+    });
+    
 })
 
