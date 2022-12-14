@@ -30,6 +30,8 @@ describe('CheckOut', () => {
         cy.iframe('.snipcart-payment-card-form iframe').find('#cvv').type(123)
         cy.get('.snipcart-submit').click()
         cy.url().should('contain', 'checkout')
+        cy.wait(6000)
+        cy.get('.snipcart__font--subtitle').should('be.visible')
 
     })
 
