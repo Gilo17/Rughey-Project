@@ -18,18 +18,23 @@ describe('CheckOut', () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it('add single item to cart', () => {
+    it('checkout item', () => {
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
         cy.get(".snipcart-cart-header").should("be.visible")
         cy.get('.snipcart-base-button__wrapper').should("be.visible")
+        Checkout.checkOutFlow('Rughey Gilzeane', 'gilzeane12@yahoo.com', 'Ivory Way', 'Mount Pleasant', 'Jamaica', 'St Andrew', '12345')
+        cy.iframe('.snipcart-payment-card-form iframe').find('#card-number').type('4242 4242 4242 4242')
+        cy.iframe('.snipcart-payment-card-form iframe').find('#expiry-date').type('10/24')
+        cy.iframe('.snipcart-payment-card-form iframe').find('#cvv').type(123)
+        cy.get('.snipcart-submit').click()
+        cy.url().should('contain', 'checkout')
 
     })
-    it('should checkout items in the cart', () => {
-        Checkout.checkOutFlow('Rughey Gilzeane', 'gilzeane12@yahoo.com', 'Ivory Way', 'Mount Pleasant', 'Jamaica', 'St Andrew', '12345')
-        Checkout.paymentInfo(' 4242 4242 4242 4242', '0634', '123')
-    })
+
+
+
 })
 
 

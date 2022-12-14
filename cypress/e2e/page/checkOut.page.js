@@ -5,31 +5,31 @@ class Checkout {
     }
 
     get fullName() {
-        return ("#name_72f5ece5-bf87-4b76-a5ac-ceed54acda1e")
+        return ("[name='name']")
     }
 
     get email() {
-        return ('#email_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ("[name='email']")
     }
 
     get streetAdress() {
-        return ('#address1_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ("[name='address1']")
     }
 
     get city() {
-        return ('#city_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ("[name='city']")
     }
 
     get country() {
-        return ('#country_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ('.snipcart-typeahead input')
     }
 
     get state() {
-        return ('#province_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ("[name='province']")
     }
 
     get zip() {
-        return ('#postalCode_72f5ece5-bf87-4b76-a5ac-ceed54acda1e')
+        return ("[name='postalCode']")
     }
 
     get continueBtn() {
@@ -37,16 +37,16 @@ class Checkout {
     }
 
     get cardNumber() {
-        return ('[name = "card-number"]')
+        return ("#card-number")
     }
     get cardDate() {
-        return ('[name = "expiry-date"]')
+        return ("[name ='expiry-date']")
     }
     get cvvNumber() {
         return ('#cvv')
     }
     get placeOrderButton() {
-        return ('[type="submit"]')
+        return ("[type='submit']")
     }
 
     checkOutFlow(fullName, email, streetAdress, city, country, state, zip) {
@@ -55,21 +55,19 @@ class Checkout {
         cy.get(this.email).type(email)
         cy.get(this.streetAdress).type(streetAdress)
         cy.get(this.city).type(city)
-        cy.get(this.country).select(country)
+        cy.get(this.country).eq(0).type('United States{enter}',{force: true} )
+        cy.get(this.country).eq(1).type('Alabama',{force: true})
         cy.get(this.state).type(state)
         cy.get(this.zip).type(zip)
         cy.get(this.continueBtn).scrollIntoView()
-        cy.get(this.continueBtn.click({ force: true })
+        cy.get(this.continueBtn).click({ force: true })
+        
 
 
-
-        )
+        
     }
 
     paymentInfo(cardNumber, date, cvv) {
-
-        cy.get(this.cardNumber).should('be.visible')
-
         cy.get(this.cardNumber).type(cardNumber)
         cy.get(this.cardDate).type(date)
         cy.get(this.cvvNumber).type(cvv)
