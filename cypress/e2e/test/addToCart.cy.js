@@ -37,7 +37,6 @@ describe.only("Add to cart",()=>{
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
         cy.get('button[data-item-name="Quality Trucker Hat"]').scrollIntoView()
-        cy.wait(6000)
         cy.get('button[data-item-name="Quality Trucker Hat"]').should('be.visible').click()
         cy.get('.snipcart-base-button__wrapper').should("be.visible")
         cy.get("button[title='Decrement quantity']").click(); 
