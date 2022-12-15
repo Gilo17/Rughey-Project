@@ -18,7 +18,7 @@ describe('CheckOut', () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it.skip('checkout item', () => {
+    it('checkout item', () => {
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
