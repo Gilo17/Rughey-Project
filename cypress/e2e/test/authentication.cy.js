@@ -5,22 +5,22 @@ describe('User authentication', () => {
     beforeEach(() => {
         cy.visit('/')
     })
-    it.skip("Login to platform", () => {
+    it("Login to platform", () => {
         cy.get("#signInOrRegister").click();
         //Login on to site.
         cy.origin(
             "https://dev-mlluudmotpwoldtv.us.auth0.com",
             { args: {} },
             ({ }) => {
-                cy.get('[type="email"]').type("test1@tester.com");
-                cy.get('[type="password"]').type("Password1", { log: false });
+                cy.get('[type="email"]').type("gilzene@yahoo.com");
+                cy.get('[type="password"]').type("Liverpool123", { log: false });
                 cy.get("[name=submit]").click();
             }
         );
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     });
-    it.skip('signUp', () => {
+    it('signUp', () => {
         cy.get("#signInOrRegister").click();
         const email = faker.internet.email();
         //Login on to site.
@@ -44,8 +44,8 @@ describe('User authentication', () => {
             "https://dev-mlluudmotpwoldtv.us.auth0.com",
             { args: {} },
             ({ }) => {
-                cy.get('[type="email"]').type("test1@tester.com");
-                cy.get('[type="password"]').type("Pasord1", { log: false });
+                cy.get('[type="email"]').type("gilzene@yahoo.com");
+                cy.get('[type="password"]').type("Liverpool", { log: false });
                 cy.get("[name=submit]").click();
             }
         );
