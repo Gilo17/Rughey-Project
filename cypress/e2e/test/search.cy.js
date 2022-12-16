@@ -18,19 +18,19 @@ describe('CheckOut', () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it.skip('should search for hats',()=>{
+    it('should search for hats',()=>{
        search.Search('Hat')
        cy.get("div[id='product-1'] p[class='chakra-text css-1n64n71']").should('be.visible')
        cy.get("div[id='product-0'] p[class='chakra-text css-1n64n71']").should('be.visible')
     })
-    it.skip('should search for red couch',()=>{
+    it('should search for red couch',()=>{
         search.Search('red couch')
         cy.get(".chakra-text.css-1n64n71").should('be.visible')
         
      })
-     it('should search for mousepad',()=>{
-        search.Search('mousepad')
-        cy.get(".chakra-text.css-1n64n71").should('be.visible')
+     it('item not in product list should not be visible',()=>{
+        search.Search('House')
+        cy.get(".css-12qzrsi").should('be.visible')
        
      })
 })
