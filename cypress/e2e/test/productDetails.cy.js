@@ -17,14 +17,14 @@ describe.only("Product details", () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it.skip('Category of item computer should be visible', () => {
+    it('Category of item computer should be visible', () => {
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-mousepad.jpg']").scrollIntoView()
         cy.wait(6000)
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-mousepad.jpg']").should('be.visible').click()
         cy.url().should('contain','quality-mousepad')
         cy.get('.css-1ccau2i').should('be.visible')
     })
-    it.skip('item name should be visible', () => {
+    it('item name should be visible', () => {
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-mousepad.jpg']").scrollIntoView()
         cy.wait(6000)
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-mousepad.jpg']").should('be.visible').click()
