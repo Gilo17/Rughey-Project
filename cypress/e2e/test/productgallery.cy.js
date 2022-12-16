@@ -17,13 +17,13 @@ describe.only("Add to cart", () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it.skip('product details should be displayed when item is clicked', () => {
+    it('product details should be displayed when item is clicked', () => {
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-hat.jpg']").scrollIntoView()
         cy.wait(6000)
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-hat.jpg']").should('be.visible').click()
         cy.url().should('contain','quality-hat')
     })
-    it.skip('should return to product gallery page', () => {
+    it('should return to product gallery page', () => {
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-hat.jpg']").scrollIntoView()
         cy.wait(6000)
         cy.get(".chakra-image.css-2i84d9[src='/images/quality-hat.jpg']").should('be.visible').click()
