@@ -29,7 +29,7 @@ describe('CheckOut', () => {
         
      })
      it('item not in product list should not be visible',()=>{
-        search.Search('water')
+        search.Search('House')
         cy.get(".css-12qzrsi").should('be.visible')
        
      })
