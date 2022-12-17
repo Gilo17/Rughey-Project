@@ -1,5 +1,6 @@
 import search from "../page/search.page"
 import Authentication from "../page/authentication.page"
+import addToCart from "../page/addToCart.page"
 
 describe('CheckOut', () => {
     beforeEach(() => {
@@ -22,10 +23,14 @@ describe('CheckOut', () => {
        search.Search('Hat')
        cy.get("div[id='product-1'] p[class='chakra-text css-1n64n71']").should('be.visible')
        cy.get("div[id='product-0'] p[class='chakra-text css-1n64n71']").should('be.visible')
+       cy.get(addToCart.itemName).each(($elem) => {
+        expect($elem.text()).contain('Hat')
+        })
     })
     it('should search for red couch',()=>{
         search.Search('red couch')
         cy.get(".chakra-text.css-1n64n71").should('be.visible')
+        cy.get(".chakra-text.css-1n64n71").should('contain.text','Red Couch')
         
      })
      it('item not in product list should not be visible',()=>{
