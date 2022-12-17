@@ -1,5 +1,6 @@
 import search from "../page/search.page"
 import Authentication from "../page/authentication.page"
+import addToCart from "../page/addToCart.page"
 
 describe('CheckOut', () => {
     beforeEach(() => {
