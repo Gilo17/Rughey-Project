@@ -5,13 +5,13 @@ describe('Sorting items names and prices', () => {
     beforeEach(() => {
         cy.visit('/')
     })
-    it.skip('should sort products from A-Z', () => {
+    it('should sort products from A-Z', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectSort(ProductsData.sort['A to Z'])
         ProductsData.products.sort()
         
     })
-    it.skip('should sort products from High to Low', () => {
+    it('should sort products from High to Low', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectSort(ProductsData.sort['High to Low'])
         ProductsData.products.sort()
@@ -22,9 +22,10 @@ describe('Sorting items names and prices', () => {
     it('should filter products by hat category', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectFilter(ProductsData.sort['Hats'])
+        cy.wait(1500)
         ProductsData.products.sort()
         cy.get(addToCart.itemCategory).each(($elem, index) => {
-            expect($elem.text('Hat')).equal(ProductsData.products[index].label)
+            expect($elem.text()).equal(ProductsData.products[index].label)
         })
     })
 })
