@@ -40,9 +40,9 @@ describe('Sorting items names and prices', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectFilter(ProductsData.sort['Hats'])
         cy.wait(1500)
-        ProductsData.products.sort()
+        const hatArray = ProductsData.products.filter(a=>a.label=='hat')
         cy.get(addToCart.itemCategory).each(($elem, index) => {
-            expect($elem.text()).equal(ProductsData.products[index].label)
+            expect($elem.text()).equal(hatArray[index].label)
         })
     })
 })
