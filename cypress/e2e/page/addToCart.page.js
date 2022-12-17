@@ -1,3 +1,5 @@
+
+
 class addToCart {
     get qualityFittedHatItem() {
         return ('#product-0>#add-to-cart.chakra-button')
@@ -86,3 +88,4 @@ class addToCart {
     }
 }
 export default new addToCart()
+
