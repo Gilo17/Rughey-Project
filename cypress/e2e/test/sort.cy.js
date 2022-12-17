@@ -24,7 +24,7 @@ describe('Sorting items names and prices', () => {
         addToCart.selectFilter(ProductsData.sort['Hats'])
         ProductsData.products.sort()
         cy.get(addToCart.itemCategory).each(($elem, index) => {
-            expect($elem.text('hat')).equal(ProductsData.products[index].label)
+            expect($elem.text('Hat')).equal(ProductsData.products[index].label)
         })
     })
 })
