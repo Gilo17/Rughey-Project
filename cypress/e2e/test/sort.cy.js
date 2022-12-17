@@ -9,6 +9,9 @@ describe('Sorting items names and prices', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectSort(ProductsData.sort['A to Z'])
         ProductsData.products.sort()
+        cy.get(addToCart.itemName).each(($elem, index) => {
+            expect($elem.text()).equal(ProductsData.products[index].name)
+        })
         
     })
     it('should sort products from High to Low', () => {
