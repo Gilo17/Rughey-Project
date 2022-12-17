@@ -5,13 +5,13 @@ describe('Sorting items names and prices', () => {
     beforeEach(() => {
         cy.visit('/')
     })
-    it.skip('should sort products from A-Z', () => {
+    it('should sort products from A-Z', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectSort(ProductsData.sort['A to Z'])
         ProductsData.products.sort()
         
     })
-    it.skip('should sort products from High to Low', () => {
+    it('should sort products from High to Low', () => {
         Authentication.login('gilzene@yahoo.com', 'Liverpool123')
         addToCart.selectSort(ProductsData.sort['High to Low'])
         ProductsData.products.sort()
