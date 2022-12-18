@@ -1,7 +1,7 @@
 import contact from "../page/contact.page"
 import Authentication from "../page/authentication.page"
 
-describe('CheckOut', () => {
+describe('Contact', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.get("#signInOrRegister").click();
