@@ -5,7 +5,7 @@ describe('User authentication', () => {
     beforeEach(() => {
         cy.visit('/')
     })
-    it.skip("Login to platform", () => {
+    it("Login to platform", () => {
         cy.get("#signInOrRegister").click();
         //Login on to site.
         cy.origin(
@@ -20,7 +20,7 @@ describe('User authentication', () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     });
-    it.skip('signUp', () => {
+    it('signUp', () => {
         cy.get("#signInOrRegister").click();
         const email = faker.internet.email();
         //Login on to site.
