@@ -18,7 +18,7 @@ describe('CheckOut', () => {
         cy.url().should('contain', 'products')
         cy.get(Authentication.productList).should('be.visible')
     })
-    it('checkout item', () => {
+    it('checkout item with valid credentials', () => {
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
@@ -34,7 +34,7 @@ describe('CheckOut', () => {
         cy.get('.snipcart__font--subtitle').should('be.visible')
 
     })
-    it.skip('should not checkout with invalid email', () => {
+    it('should not checkout with invalid email', () => {
         cy.get('button[data-item-name="Quality Fitted Hat"]').scrollIntoView()
         cy.wait(6000)
         cy.get('button[data-item-name="Quality Fitted Hat"]').should('be.visible').click()
