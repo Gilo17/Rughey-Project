@@ -1,6 +1,6 @@
 import Authentication from "../page/authentication.page"
 
-describe.only("Add to cart", () => {
+describe.only("Product Gallery", () => {
     beforeEach(() => {
         cy.visit('/')
         cy.get("#signInOrRegister").click();
