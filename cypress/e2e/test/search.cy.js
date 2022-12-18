@@ -2,7 +2,7 @@ import search from "../page/search.page"
 import Authentication from "../page/authentication.page"
 import addToCart from "../page/addToCart.page"
 
-describe('CheckOut', () => {
+describe('Search', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.get("#signInOrRegister").click();
